@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    transition: 0.6s;
+    transition-timing-function: ease-in-out;
 }
 
 body {
@@ -7,7 +9,8 @@ body {
     padding: 0;
     font-family: 'Tilt Neon';
     background-color: #e6e39c;
-    padding: 3em 0 3em 0;
+    font-size: 1.2rem;
+    padding: 1.5rem 0 1.5rem 0;
 }
 
 h1 {
@@ -37,55 +40,120 @@ img {
     margin: 0 auto;
     width: 100%;
     border-radius: 5%;
-    margin-top: 1em;
+    margin-top: 1rem;
 }
 
 .bayan {
     font-family: 'Lobster';
     color: #ab7903;
-    font-size: 3em;
+    font-size: 3rem;
 }
 
 .toggleableContent {
     max-height: 0;
     overflow: hidden;
-    transition: .8s;
   }
   
 .toggleableControl:checked ~ .toggleableContent {
-    transition-timing-function: ease-in-out;
     max-height: 800px;
+}
+
+.toggleableControl:checked ~ .toggleableLabel {
+    color: #000;
 }
 
 .hidden {
     border: 0;
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px, 1px, 1px, 1px);
-    height: 1px;
-    margin: -1px;
+    clip: rect(0.01rem 0.01rem 0.01rem 0.01rem);
+    clip: rect(0.01rem, 0.01rem, 0.01rem, 0.01rem);
+    height: 0.01rem;
+    margin: -0.01rem;
     overflow: hidden;
     padding: 0;
     position: absolute;
-    width: 1px;
+    width: 0.01rem;
 }
 
 .toggleable {
-    padding: 1em 0 1em 0;
-    border-bottom: 0.1em solid rgb(144, 168, 38);
+    padding: 1rem 0 1rem 0;
+    border-bottom: 0.1rem solid rgb(144, 168, 38);
     color: #66712f;
-  }
+}
 
 .toggleableLabel {
     display: flex;
     justify-content: space-between;
 }
 
-.toggleableLabel::after {
-    content: "▼";
+.pop {
     font-size: 0.8rem;
-    transition: .8s;
+    opacity: 0;
 }
-  
-.toggleableControl:checked ~ .toggleableLabel::after {
+
+.hr {
+    border: 0.2rem solid rgb(69, 91, 24); 
+    border-radius: 2rem;
+}
+
+.toggleableControl:checked~label>.pop {
     transform: rotate(180deg);
+}
+
+@media(hover: hover) {
+    .accordionMenu:hover .toggleableLabel {
+        cursor: pointer;
+    }
+    
+    .accordionMenu:hover .pop {
+        opacity: 1;
+    }
+    
+    .accordionMenu:hover .toggleableLabel {
+        color: black;
+    }
+    
+    .toggleable:hover>.toggleableContent {
+        max-height: 800px;
+        cursor: pointer;
+    }
+
+    .toggleable:hover>.toggleableLabel>.pop {
+        transform: rotate(180deg);
+    }
+}
+
+@media (min-width:820px) {
+    body {
+        font-size: 1.6rem;
+    }
+
+    .container {
+        width: 60%;
+    }
+
+    img {
+        width: 80%;
+    }
+
+    .bayan {
+        font-size: 5rem;
+    }
+}
+
+@media (min-width:1920px) {
+    body {
+        font-size: 2rem;
+    }
+
+    .container {
+        width: 50%;
+    }
+
+    img {
+        width: 70%;
+    }
+
+    .bayan {
+        font-size: 7rem;
+    }
 }
