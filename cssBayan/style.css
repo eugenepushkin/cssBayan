@@ -35,8 +35,9 @@ li {
 img {
     display: block;
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
     border-radius: 5%;
+    margin-top: 1em;
 }
 
 .bayan {
@@ -56,7 +57,7 @@ img {
     max-height: 800px;
 }
 
-.hidden--visually {
+.hidden {
     border: 0;
     clip: rect(1px 1px 1px 1px);
     clip: rect(1px, 1px, 1px, 1px);
@@ -68,11 +69,23 @@ img {
     width: 1px;
 }
 
+.toggleable {
+    padding: 1em 0 1em 0;
+    border-bottom: 0.1em solid rgb(144, 168, 38);
+    color: #66712f;
+  }
+
+.toggleableLabel {
+    display: flex;
+    justify-content: space-between;
+}
+
 .toggleableLabel::after {
     content: "▼";
     font-size: 0.8rem;
+    transition: .8s;
 }
   
 .toggleableControl:checked ~ .toggleableLabel::after {
-    content: "▲";
+    transform: rotate(180deg);
 }
