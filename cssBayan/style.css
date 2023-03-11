@@ -2,9 +2,13 @@
     box-sizing: border-box;
 }
 
-body {
+body, h1 {
     margin: 0;
     padding: 0;
+}
+
+body {
+    background-color: #efec8a;
 }
 
 ul, a, p, pre {
@@ -16,4 +20,26 @@ ul, a, p, pre {
 
 li {
     list-style-type: none;
+}
+
+.container {    
+    margin: 0 auto;
+    background-color: aqua;
+    width: 50%;
+}
+
+img {
+    display: block;
+    width: 70%;
+    border-radius: 5%;
+}
+
+.bayan {
+    font-family: 'Lobster';
+    font-size: 4em;
+    text-decoration: underline;
+}
+
+div button {
+    font-family: 'Tilt Neon';
 }
