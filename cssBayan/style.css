@@ -2,13 +2,18 @@
     box-sizing: border-box;
 }
 
-body, h1 {
+body {
     margin: 0;
     padding: 0;
+    font-family: 'Tilt Neon';
+    background-color: #e6e39c;
+    padding: 3em 0 3em 0;
 }
 
-body {
-    background-color: #efec8a;
+h1 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lobster';
 }
 
 ul, a, p, pre {
@@ -24,22 +29,50 @@ li {
 
 .container {    
     margin: 0 auto;
-    background-color: aqua;
-    width: 50%;
+    width: 80%;
 }
 
 img {
     display: block;
-    width: 70%;
+    margin: 0 auto;
+    width: 90%;
     border-radius: 5%;
 }
 
 .bayan {
     font-family: 'Lobster';
-    font-size: 4em;
-    text-decoration: underline;
+    color: #ab7903;
+    font-size: 3em;
 }
 
-div button {
-    font-family: 'Tilt Neon';
+.toggleableContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: .8s;
+  }
+  
+.toggleableControl:checked ~ .toggleableContent {
+    transition-timing-function: ease-in-out;
+    max-height: 800px;
+}
+
+.hidden--visually {
+    border: 0;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.toggleableLabel::after {
+    content: "▼";
+    font-size: 0.8rem;
+}
+  
+.toggleableControl:checked ~ .toggleableLabel::after {
+    content: "▲";
 }
