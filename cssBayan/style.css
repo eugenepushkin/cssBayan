@@ -63,15 +63,7 @@ img {
 }
 
 .hidden {
-    border: 0;
-    clip: rect(0.01rem 0.01rem 0.01rem 0.01rem);
-    clip: rect(0.01rem, 0.01rem, 0.01rem, 0.01rem);
-    height: 0.01rem;
-    margin: -0.01rem;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 0.01rem;
+    display: none;
 }
 
 .toggleable {
