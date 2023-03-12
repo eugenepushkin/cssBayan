@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    transition: 0.6s;
+    transition: 0.5s;
     transition-timing-function: ease-in-out;
 }
 
@@ -36,10 +36,6 @@ li {
 }
 
 img {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    border-radius: 5%;
     margin-top: 1rem;
 }
 
@@ -50,12 +46,16 @@ img {
 }
 
 .toggleableContent {
-    max-height: 0;
-    overflow: hidden;
-  }
+    display: block;
+    visibility: hidden;
+    width: 0;
+    margin: 0 auto;
+}
   
-.toggleableControl:checked ~ .toggleableContent {
-    max-height: 800px;
+.toggleableControl:checked~.toggleableLabel>.toggleableContent {
+    padding-top: 1rem;
+    visibility: visible;
+    width: 100%;
 }
 
 .toggleableControl:checked ~ .toggleableLabel {
@@ -77,12 +77,19 @@ img {
 .toggleable {
     padding: 1rem 0 1rem 0;
     border-bottom: 0.1rem solid rgb(144, 168, 38);
-    color: #66712f;
+    color: blue;
 }
 
 .toggleableLabel {
     display: flex;
+    flex-direction: column;
+}
+
+.part {
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    transition: 0.3s;
 }
 
 .pop {
@@ -95,11 +102,19 @@ img {
     border-radius: 2rem;
 }
 
-.toggleableControl:checked~label>.pop {
+.toggleableControl:checked~.toggleableLabel>.part .pop {
     transform: rotate(180deg);
 }
 
-@media(hover: hover) {
+.toggleableControl:active~.toggleableLabel>.toggleableContent {
+    opacity: 0.7;
+}
+
+.toggleableControl:active~.toggleableLabel>.part {
+    color:blue;
+}
+
+@media (hover: hover) {
     .accordionMenu:hover .toggleableLabel {
         cursor: pointer;
     }
@@ -112,48 +127,54 @@ img {
         color: black;
     }
     
-    .toggleable:hover>.toggleableContent {
-        max-height: 800px;
+    .toggleableLabel:hover>.toggleableContent {
+        padding-top: 1rem;
+        visibility: visible;
+        width: 80%;
         cursor: pointer;
     }
 
-    .toggleable:hover>.toggleableLabel>.pop {
+    .toggleableLabel:hover>.part .pop{
         transform: rotate(180deg);
     }
 }
 
 @media (min-width:820px) {
     body {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 
     .container {
-        width: 60%;
-    }
-
-    img {
-        width: 80%;
+        width: 40%;
     }
 
     .bayan {
-        font-size: 5rem;
+        font-size: 4rem;
+    }
+
+    .toggleableControl:checked~.toggleableLabel>.toggleableContent {
+        width: 80%;
     }
 }
 
 @media (min-width:1920px) {
     body {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .container {
-        width: 50%;
-    }
-
-    img {
-        width: 70%;
+        width: 40%;
     }
 
     .bayan {
-        font-size: 7rem;
+        font-size: 5rem;
+    }
+
+    .toggleableControl:checked~.toggleableLabel>.toggleableContent {
+        width: 60%;
+    }
+
+    .toggleableLabel:hover>.toggleableContent {
+        width: 60%;
     }
 }
