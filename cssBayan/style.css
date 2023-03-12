@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Tilt Neon';
+    background-color: #e6e39c;
+    font-size: 1.2rem;
+    padding: 1.5rem 0 1.5rem 0;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lobster';
+}
+
+ul, a, p, pre {
+    color: black;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container {    
+    margin: 0 auto;
+    width: 80%;
+}
+
+img {
+    margin-top: 1rem;
+}
+
+.bayan {
+    font-family: 'Lobster';
+    color: #ab7903;
+    font-size: 3rem;
+}
+
+.toggleableContent {
+    display: block;
+    visibility: hidden;
+    width: 0;
+    margin: 0 auto;
+}
+  
+.toggleableControl:checked~.toggleableLabel>.toggleableContent {
+    padding-top: 1rem;
+    visibility: visible;
+    width: 100%;
+}
+
+.toggleableControl:checked ~ .toggleableLabel {
+    color: #000;
+}
+
+.hidden {
+    display: none;
+}
+
+.toggleable {
+    padding: 1rem 0 1rem 0;
+    border-bottom: 0.1rem solid rgb(144, 168, 38);
+    color: blue;
+}
+
+.toggleableLabel {
+    display: flex;
+    flex-direction: column;
+}
+
+.part {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transition: 0.3s;
+}
+
+.pop {
+    font-size: 0.8rem;
+    opacity: 0;
+}
+
+.hr {
+    border: 0.2rem solid rgb(69, 91, 24); 
+    border-radius: 2rem;
+}
+
+.toggleableControl:checked~.toggleableLabel>.part .pop {
+    transform: rotate(180deg);
+}
+
+.toggleableControl:active~.toggleableLabel>.toggleableContent {
+    opacity: 0.7;
+}
+
+.toggleableControl:active~.toggleableLabel>.part {
+    color:blue;
+}
+
+@media (hover: hover) {
+    .accordionMenu:hover .toggleableLabel {
+        cursor: pointer;
+    }
+    
+    .accordionMenu:hover .pop {
+        opacity: 1;
+    }
+    
+    .accordionMenu:hover .toggleableLabel {
+        color: black;
+    }
+    
+    .toggleableLabel:hover>.toggleableContent {
+        padding-top: 1rem;
+        visibility: visible;
+        width: 80%;
+        cursor: pointer;
+    }
+
+    .toggleableLabel:hover>.part .pop{
+        transform: rotate(180deg);
+    }
+}
+
+@media (min-width:820px) {
+    body {
+        font-size: 1.4rem;
+    }
+
+    .container {
+        width: 40%;
+    }
+
+    .bayan {
+        font-size: 4rem;
+    }
+
+    .toggleableControl:checked~.toggleableLabel>.toggleableContent {
+        width: 80%;
+    }
+}
+
+@media (min-width:1920px) {
+    body {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        width: 40%;
+    }
+
+    .bayan {
+        font-size: 5rem;
+    }
+
+    .toggleableControl:checked~.toggleableLabel>.toggleableContent {
+        width: 60%;
+    }
+
+    .toggleableLabel:hover>.toggleableContent {
+        width: 60%;
+    }
+}
